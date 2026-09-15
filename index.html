@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Melvin Store — Aplikasi Premium</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<header class="navbar">
+
+  <div class="nav-container">
+
+    <a href="#home" class="logo">
+
+      <div class="logo-icon">
+        M
+      </div>
+
+      <span>
+        Melvin<span class="logo-accent">Store</span>
+      </span>
+
+    </a>
+
+
+    <nav>
+
+      <a href="#home">Home</a>
+      <a href="#produk">Produk</a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#kontak">Kontak</a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+      <button
+        class="admin-nav-btn"
+        onclick="openAdmin()"
+      >
+        ⚙️ Admin
+      </button>
+
+
+      <button
+        class="cart-btn"
+        onclick="openCart()"
+      >
+
+        🛒
+
+        <span>
+          Keranjang
+        </span>
+
+        <b id="cartCount">
+          0
+        </b>
+
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+  <!-- HERO -->
+
+  <section
+    class="hero"
+    id="home"
+  >
+
+    <div class="hero-content">
+
+      <div class="badge">
+        ✨ PREMIUM DIGITAL STORE
+      </div>
+
+
+      <h1>
+
+        Upgrade
+        Pengalamanmu
+
+        <span>
+          Dengan Aplikasi Premium
+        </span>
+
+      </h1>
+
+
+      <p>
+        Temukan berbagai aplikasi premium
+        untuk editing, desain, musik,
+        produktivitas, dan kebutuhan digital lainnya.
+      </p>
+
+
+      <div class="hero-buttons">
+
+        <a
+          href="#produk"
+          class="btn primary"
+        >
+          Lihat Produk
+        </a>
+
+
+        <a
+          href="#keunggulan"
+          class="btn secondary"
+        >
+          Kenapa Kami?
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <div class="floating-icon">
+        ✦
+      </div>
+
+
+      <div class="hero-card-content">
+
+        <small>
+          BEST SELLER
+        </small>
+
+
+        <h3>
+          Premium Apps
+        </h3>
+
+
+        <p>
+          Praktis • Cepat • Terjangkau
+        </p>
+
+
+        <div class="mini-products">
+
+          <div>🎬</div>
+          <div>🎨</div>
+          <div>🎵</div>
+          <div>📱</div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRODUK -->
+
+  <section
+    class="products-section"
+    id="produk"
+  >
+
+    <div class="section-heading">
+
+      <div>
+
+        <span class="section-label">
+          KOLEKSI PRODUK
+        </span>
+
+
+        <h2>
+          Aplikasi Premium
+        </h2>
+
+
+        <p>
+          Pilih produk yang sesuai
+          dengan kebutuhanmu.
+        </p>
+
+      </div>
+
+
+      <div class="search-box">
+
+        🔍
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Cari aplikasi..."
+          oninput="searchProducts()"
+        >
+
+      </div>
+
+    </div>
+
+
+    <!-- CATEGORY -->
+
+    <div class="categories">
+
+      <button
+        class="category active"
+        onclick="filterCategory('all', this)"
+      >
+        Semua
+      </button>
+
+
+      <button
+        class="category"
+        onclick="filterCategory('editing', this)"
+      >
+        🎬 Editing
+      </button>
+
+
+      <button
+        class="category"
+        onclick="filterCategory('design', this)"
+      >
+        🎨 Design
+      </button>
+
+
+      <button
+        class="category"
+        onclick="filterCategory('music', this)"
+      >
+        🎵 Musik
+      </button>
+
+
+      <button
+        class="category"
+        onclick="filterCategory('productivity', this)"
+      >
+        💼 Produktivitas
+      </button>
+
+    </div>
+
+
+    <div
+      class="product-grid"
+      id="productGrid"
+    ></div>
+
+
+    <div
+      class="empty-products"
+      id="emptyProducts"
+    >
+
+      <div>
+        📦
+      </div>
+
+      <h3>
+        Produk tidak ditemukan
+      </h3>
+
+      <p>
+        Coba gunakan kata kunci lain.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- KEUNGGULAN -->
+
+  <section
+    class="features-section"
+    id="keunggulan"
+  >
+
+    <div class="section-center">
+
+      <span class="section-label">
+        KENAPA MELVIN STORE?
+      </span>
+
+
+      <h2>
+        Belanja Lebih Mudah
+      </h2>
+
+
+      <p>
+        Kami membuat proses pembelian
+        produk digital menjadi sederhana.
+      </p>
+
+    </div>
+
+
+    <div class="features">
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          ⚡
+        </div>
+
+        <h3>
+          Proses Cepat
+        </h3>
+
+        <p>
+          Pesanan diproses setelah
+          pembayaran dikonfirmasi.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          🔒
+        </div>
+
+        <h3>
+          Aman
+        </h3>
+
+        <p>
+          Data pesanan ditangani
+          dengan baik.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          💬
+        </div>
+
+        <h3>
+          Support
+        </h3>
+
+        <p>
+          Hubungi kami melalui WhatsApp
+          jika membutuhkan bantuan.
+        </p>
+
+      </div>
+
+
+      <div class="feature-card">
+
+        <div class="feature-icon">
+          💎
+        </div>
+
+        <h3>
+          Produk Premium
+        </h3>
+
+        <p>
+          Pilihan produk digital premium
+          untuk berbagai kebutuhan.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section
+    class="cta"
+    id="kontak"
+  >
+
+    <div>
+
+      <span>
+        MASIH BINGUNG?
+      </span>
+
+
+      <h2>
+        Butuh bantuan memilih produk?
+      </h2>
+
+
+      <p>
+        Hubungi Melvin Store melalui WhatsApp.
+      </p>
+
+    </div>
+
+
+    <a
+      href="https://wa.me/6281919655663"
+      target="_blank"
+      class="btn whatsapp"
+    >
+      💬 Chat WhatsApp
+    </a>
+
+  </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="footer-content">
+
+    <div class="footer-brand">
+
+      <div class="logo">
+
+        <div class="logo-icon">
+          M
+        </div>
+
+        <span>
+          Melvin<span class="logo-accent">
+            Store
+          </span>
+        </span>
+
+      </div>
+
+
+      <p>
+        Toko digital untuk berbagai
+        kebutuhan aplikasi premium.
+      </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <h4>
+        Menu
+      </h4>
+
+      <a href="#home">
+        Home
+      </a>
+
+      <a href="#produk">
+        Produk
+      </a>
+
+      <a href="#keunggulan">
+        Keunggulan
+      </a>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <h4>
+        Kontak
+      </h4>
+
+      <a
+        href="https://wa.me/6281919655663"
+        target="_blank"
+      >
+        WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="copyright">
+
+    © 2026 Melvin Store.
+    All Rights Reserved.
+
+  </div>
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<div
+  class="cart-overlay"
+  id="cartOverlay"
+  onclick="closeCart(event)"
+>
+
+  <div
+    class="cart-modal"
+    onclick="event.stopPropagation()"
+  >
+
+    <div class="cart-header">
+
+      <div>
+
+        <span class="section-label">
+          KERANJANG
+        </span>
+
+        <h2>
+          Pesanan Kamu
+        </h2>
+
+      </div>
+
+
+      <button
+        class="close-cart"
+        onclick="closeCart()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <div
+      class="cart-items"
+      id="cartItems"
+    ></div>
+
+
+    <div
+      class="cart-empty"
+      id="cartEmpty"
+    >
+
+      <div>
+        🛒
+      </div>
+
+      <h3>
+        Keranjang masih kosong
+      </h3>
+
+      <p>
+        Tambahkan produk terlebih dahulu.
+      </p>
+
+    </div>
+
+
+    <div class="cart-bottom">
+
+      <div class="total-row">
+
+        <span>
+          Total
+        </span>
+
+        <strong id="cartTotal">
+          Rp0
+        </strong>
+
+      </div>
+
+
+      <button
+        class="checkout-btn"
+        onclick="checkout()"
+      >
+        💬 Checkout via WhatsApp
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ADMIN LOGIN ================= -->
+
+<div
+  class="login-overlay"
+  id="loginOverlay"
+  onclick="closeLogin(event)"
+>
+
+  <div
+    class="login-modal"
+    onclick="event.stopPropagation()"
+  >
+
+    <button
+      class="login-close"
+      onclick="closeLogin()"
+    >
+      ×
+    </button>
+
+
+    <div class="login-icon">
+      🔐
+    </div>
+
+
+    <span class="section-label">
+      MELVIN STORE
+    </span>
+
+
+    <h2>
+      Admin Login
+    </h2>
+
+
+    <p>
+      Masukkan password untuk mengakses
+      panel admin.
+    </p>
+
+
+    <div class="password-box">
+
+      <input
+        type="password"
+        id="adminPasswordInput"
+        placeholder="Masukkan password"
+        autocomplete="off"
+        onkeydown="handleLoginKey(event)"
+      >
+
+
+      <button
+        type="button"
+        id="togglePasswordBtn"
+        onclick="togglePassword()"
+      >
+        👁️
+      </button>
+
+    </div>
+
+
+    <div
+      class="login-error"
+      id="loginError"
+    >
+      Password salah!
+    </div>
+
+
+    <button
+      class="login-button"
+      onclick="loginAdmin()"
+    >
+      🔓 Masuk ke Admin
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ADMIN PANEL ================= -->
+
+<div
+  class="admin-overlay"
+  id="adminOverlay"
+  onclick="closeAdmin(event)"
+>
+
+  <div
+    class="admin-modal"
+    onclick="event.stopPropagation()"
+  >
+
+    <div class="admin-header">
+
+      <div>
+
+        <span class="section-label">
+          MELVIN STORE
+        </span>
+
+        <h2>
+          Panel Admin
+        </h2>
+
+      </div>
+
+
+      <button
+        class="close-cart"
+        onclick="closeAdmin()"
+      >
+        ×
+      </button>
+
+    </div>
+
+
+    <!-- FORM PRODUK -->
+
+    <div class="admin-form">
+
+      <h3 id="formTitle">
+        Tambah Produk
+      </h3>
+
+
+      <input
+        type="hidden"
+        id="editProductId"
+      >
+
+
+      <label>
+        Nama Produk
+      </label>
+
+
+      <input
+        type="text"
+        id="productName"
+        placeholder="Contoh: Alight Motion Premium"
+      >
+
+
+      <label>
+        Harga
+      </label>
+
+
+      <input
+        type="number"
+        id="productPrice"
+        placeholder="5000"
+      >
+
+
+      <label>
+        Kategori
+      </label>
+
+
+      <select id="productCategory">
+
+        <option value="editing">
+          🎬 Editing
+        </option>
+
+        <option value="design">
+          🎨 Design
+        </option>
+
+        <option value="music">
+          🎵 Musik
+        </option>
+
+        <option value="productivity">
+          💼 Produktivitas
+        </option>
+
+      </select>
+
+
+      <label>
+        Deskripsi
+      </label>
+
+
+      <textarea
+        id="productDescription"
+        placeholder="Deskripsi produk..."
+      ></textarea>
+
+
+      <label>
+        Gambar Produk
+      </label>
+
+
+      <div class="upload-area">
+
+        <input
+          type="file"
+          id="productImage"
+          accept="image/*"
+          onchange="previewImage(event)"
+        >
+
+
+        <div id="uploadText">
+          📷 Pilih gambar dari perangkat
+        </div>
+
+
+        <img
+          id="imagePreview"
+          class="image-preview"
+          alt="Preview"
+        >
+
+      </div>
+
+
+      <div class="admin-form-buttons">
+
+        <button
+          class="save-product"
+          onclick="saveProduct()"
+        >
+          💾 Simpan Produk
+        </button>
+
+
+        <button
+          class="cancel-edit"
+          onclick="resetForm()"
+        >
+          Reset
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- DAFTAR PRODUK -->
+
+    <div class="admin-products">
+
+      <div class="admin-products-title">
+
+        <h3>
+          Produk Saat Ini
+        </h3>
+
+        <span id="adminProductCount">
+          0 produk
+        </span>
+
+      </div>
+
+
+      <div
+        id="adminProductList"
+        class="admin-product-list"
+      ></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
